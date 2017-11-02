@@ -14,13 +14,16 @@ The docker images includes the following `golang` tools.
 * [x] [gocov-xml](https://github.com/AlekSi/gocov-xml) XML (Cobertura) export
 * [x] [golint](https://github.com/golang/lint/golint) This is a linter for Go source code. (Golint requires Go 1.6 or later.)
 
-## Install
-
-Copy `coverage.sh` to `/usr/local/bin/coverage` and change permission.
+## Build
 
 ```
-$ curl https://raw.githubusercontent.com/appleboy/golang-testing/1.0.2/coverage.sh -o $GOPATH/bin/coverage
-$ chmod +x $GOPATH/bin/coverage
+docker build -t micanzhang/golang-testing -f Dockerfile .
+```
+
+if you want to build different version, just replace `NAME` and `Dockerfile`:
+
+```
+docker build -t micanzhang/golang-testing:1.8 -f Dockerfile1.8 .
 ```
 
 ## Usage
@@ -46,24 +49,17 @@ Generate test coverage statistics for Go packages.
 Contribute and source at https://github.com/appleboy/golang-testing
 ```
 
-## Run with docker
-
-
-```
-$ docker pull micanzhang/golang-testing
-```
-
 ### docker command
 
 Run testing in single docker command.
 
 ```
-$ export PROJECT_PATH=/go/src/github.com/appleboy/golang-testing
+$ export PROJECT_PATH=/go/src/github.com/julienschmidt/httprouter
 $ docker run --rm \
-    -v $(PWD):$PROJECT_PATH \
+    -v $GOPATH/src/github.com/julienschmidt/httprouter:$PROJECT_PATH \
     -w=$PROJECT_PATH \
-    appleboy/golang-testing \
+    micanzhang/golang-testing \
     sh -c "coverage all"
 ```
 
-Change `PROJECT_PATH` variable. Replace `github.com/appleboy/golang-testing` with your github path.
+Change `PROJECT_PATH` variable. Replace `github.com/julienschmidt/httprouter` with your github path.
