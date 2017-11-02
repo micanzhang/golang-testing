@@ -3,21 +3,15 @@ sudo: required
 language: go
 
 go:
-  - 1.8.x
-  - 1.9.x
+  - 1.8
+  - 1.9
   - tip
 
 services:
   - docker
 
-before_install:
-  - make install
-  - make sync
-
 script:
   - make test
-  - make docker_test
-  - make docker_compose_test
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -f .cover/coverage.txt
