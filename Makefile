@@ -11,4 +11,4 @@ build:
 test:   build
 	docker run --rm \
 		micanzhang/golang-testing \
-		sh -c "go get github.com/micanzhang/pg && cd $GOPATH/src/github.com/pg && coverage all"
+		sh -c "go get github.com/julienschmidt/httprouter && cd /go/src/github.com/julienschmidt/httprouter && coverage all"
