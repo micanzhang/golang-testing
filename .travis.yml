@@ -11,6 +11,7 @@ services:
   - docker
 
 script:
+  - env
   - make test
 
 after_success:

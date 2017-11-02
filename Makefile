@@ -1,3 +1,5 @@
+.PHONY: build
+
 build:
 ifeq ($(tag),)
 	@echo "Usage: make $@ tag=<tag>"
