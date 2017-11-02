@@ -1,5 +1,3 @@
-.PHONY: build
-
 TAG = $(TRAVIS_GO_VERSION)
 ifeq (tip,$(TAG))
 	TAG =
