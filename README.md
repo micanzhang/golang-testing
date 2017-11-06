@@ -12,6 +12,7 @@ The docker images includes the following `golang` tools.
 
 * [x] [gocov](https://github.com/axw/gocov/gocov) Coverage testing tool
 * [x] [gocov-xml](https://github.com/AlekSi/gocov-xml) XML (Cobertura) export
+* [x] [gocov-html](https://github.com/matm/gocov-html) HTML export
 * [x] [golint](https://github.com/golang/lint/golint) This is a linter for Go source code. (Golint requires Go 1.6 or later.)
 
 ## Build
@@ -37,7 +38,8 @@ Generate test coverage statistics for Go packages.
   -h | --help                    Display this help and exit
   -m | --mode                    Set coverage mode. default is "set" (set|count|atomic)
   -d | --dir                     Set store coverage folder (default is ".cover")
-
+  -c | --commit                  Run action for specific commit
+  -f | --format                  Coverage report format, supports: txt,xml,html Default:txt,html
   -- Command Action --
   tool                           Install go dependency tools like gocov or golint.
   testing                        Run go testing for all packages
@@ -46,7 +48,18 @@ Generate test coverage statistics for Go packages.
   vet                            Generate Vet report for all packages
   all                            Execute coverage、lint and vet report
 
-Contribute and source at https://github.com/appleboy/golang-testing
+Example:
+
+1. run testing for all packages except vendor:
+$ coverage testing
+
+2. run testing for specific commit:
+$ coverage -c HEAD..HEAD^2 testing
+
+3. generate coverage report
+$ coverage -f html,xml coverage
+
+Contribute and source at https://github.com/micanzhang/golang-testing
 ```
 
 ### docker command
