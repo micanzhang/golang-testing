@@ -6,7 +6,7 @@ else ifeq(, $(TAG))
 endif
 
 build:
-	docker build --no-cache -f $(TAG)/Dockerfile -t micanzhang/golang-testing .
+	cd $(TAG) &&  docker build --no-cache -f Dockerfile -t micanzhang/golang-testing .
 
 test:   build
 	docker run --rm \
