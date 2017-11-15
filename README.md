@@ -76,3 +76,12 @@ $ docker run --rm \
 ```
 
 Change `PROJECT_PATH` variable. Replace `github.com/julienschmidt/httprouter` with your github path.
+
+### pull from docker hub
+
+docker hub url: [https://hub.docker.com/r/micanzhang/golang-testing](https://hub.docker.com/r/micanzhang/golang-testing)
+
+pull from docker hub by run:
+```
+$ docker pull micanzhang/golang-testing
+```
