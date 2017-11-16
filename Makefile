@@ -1,12 +1,12 @@
 TAG = $(TRAVIS_GO_VERSION)
 ifeq (tip,$(TAG))
-	TAG = .
-else ifeq(, $(TAG))
-	TAG = .
+	TAG =
+else ifeq (1.9, $(TAG))
+	TAG =
 endif
 
 build:
-	cd $(TAG) &&  docker build --no-cache -f Dockerfile -t micanzhang/golang-testing .
+	docker build --no-cache -f Dockerfile$(TAG) -t micanzhang/golang-testing .
 
 test:   build
 	docker run --rm \
