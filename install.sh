@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apk update && apk add git bash && rm -rf /var/cache/apk/*
+apk update && apk add git bash openssh-client && rm -rf /var/cache/apk/*
 
 go get -u github.com/axw/gocov/gocov
 go get -u gopkg.in/matm/v1/gocov-html
