@@ -1,7 +1,7 @@
 TAG = $(TRAVIS_GO_VERSION)
 ifeq (tip,$(TAG))
 	TAG =
-else ifeq (1.10, $(TAG))
+else ifeq (1.11, $(TAG))
 	TAG =
 endif
 
