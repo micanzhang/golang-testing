@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apt-get update && apt-get install git bash openssh-client python3
+apt-get update && apt-get install git bash openssh-client
 
 go get -u github.com/axw/gocov/gocov
 go get -u gopkg.in/matm/v1/gocov-html
